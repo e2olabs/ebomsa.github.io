@@ -1,0 +1,11 @@
+/* web.css -  starter stylesheet */
+
+/* Body text scales with screen size, but stays readable */
+body {
+  font-size: clamp(24px, 4vw, 64px);
+}
+
+/* Heading that grows more on large screens */
+h1 {
+  font-size: clamp(24px, 5vw, 48px);
+}
