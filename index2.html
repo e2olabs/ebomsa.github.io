@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example MSA Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-light: #141b33;
+      --accent: #1e88e5;
+      --accent-light: #42a5f5;
+      --text: #f5f5f5;
+      --muted: #9ea4ba;
+      --border: #2a355a;
+      --content-width: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a2340 0%, #060814 55%, #020308 100%);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 16px 40px;
+    }
+
+    /* Top graphic placeholder */
+    .hero {
+      margin-top: 24px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, #111a32, #151f3f);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hero-graphic {
+      flex: 0 0 220px;
+      height: 120px;
+      border-radius: 10px;
+      border: 1px dashed var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-light);
+      font-size: 14px;
+      text-align: center;
+      padding: 8px;
+    }
+
+    .hero-text h1 {
+      margin: 0 0 8px;
+      font-size: clamp(24px, 4vw, 32px);
+    }
+
+    .hero-text p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Tabs / nav */
+    .nav {
+      margin-top: 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 10px 14px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      border-radius: 999px 999px 0 0;
+      border: 1px solid transparent;
+      border-bottom: none;
+    }
+
+    .nav a.active {
+      color: var(--text);
+      border-color: var(--border);
+      background: var(--bg-light);
+    }
+
+    /* Main layout: left content + right sidebar */
+    .layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .main {
+      flex: 1 1 60%;
+      min-width: 260px;
+    }
+
+    .sidebar {
+      flex: 0 0 280px;
+      min-width: 260px;
+    }
+
+    section {
+      margin-bottom: 24px;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(5, 10, 24, 0.9);
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      margin: 0 0 6px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Recent updates list */
+    .updates-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .updates-list li {
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .updates-list li:last-child {
+      border-bottom: none;
+    }
+
+    .updates-date {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Contact form */
+    .form-row {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #050816;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .btn {
+      display: inline-block;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: white;
+      font-size: 14px;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+    }
+
+    /* FAQ box */
+    .faq-box {
+      width: 100%;
+      padding: 10px;
+      min-height: 120px;
+      border-radius: 8px;
+      border: 1px dashed var(--border);
+      background: #050816;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Top graphic / hero -->
+    <div class="hero">
+      <div class="hero-graphic">
+        Top graphic placeholder<br>
+        (PNG goes here later)
+      </div>
+      <div class="hero-text">
+        <h1>Example MSA Website</h1>
+        <p>Simple static layout with Home, Press Releases, Specifications, MSA, recent updates, contact form, and FAQ section.</p>
+      </div>
+    </div>
+
+    <!-- Tabs / navigation (non-functional placeholders) -->
+    <nav class="nav">
+      <a href="#home" class="active">Home</a>
+      <a href="#press">Press Releases</a>
+      <a href="#specs">Specifications</a>
+      <a href="#msa">MSA</a>
+    </nav>
+
+    <div class="layout">
+      <!-- Main content -->
+      <div class="main">
+        <section id="home">
+          <h2>Home</h2>
+          <p>This is a placeholder home section for your MSA-style site. Replace this text with your own description, scope, and goals.</p>
+        </section>
+
+        <section id="press">
+          <h2>Press Releases</h2>
+          <p>Use this area to list or link to your official announcements and press materials.</p>
+        </section>
+
+        <section id="specs">
+          <h2>Specifications</h2>
+          <p>Summarize your public specifications here, or link to PDF/HTML documents with detailed technical content.</p>
+        </section>
+
+        <section id="msa">
+          <h2>MSA Documentation</h2>
+          <p>Describe your Multi‑Source Agreement content, membership process, and document access policies.</p>
+        </section>
+      </div>
+
+      <!-- Sidebar with recent updates and form -->
+      <aside class="sidebar">
+        <section>
+          <h2>Recent Updates</h2>
+          <ul class="updates-list">
+            <li>
+              <span>Placeholder update item #1.</span>
+              <span class="updates-date">2025‑12‑01</span>
+            </li>
+            <li>
+              <span>Placeholder update item #2.</span>
+              <span class="updates-date">2025‑11‑15</span>
+            </li>
+            <li>
+              <span>Placeholder update item #3.</span>
+              <span class="updates-date">2025‑10‑30</span>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Contact / Interest Form</h2>
+          <!-- mailto-based form; will open user's email client -->
+          <form
+            action="mailto:richard.ward@e2olabs.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input id="name" name="Name" type="text" required>
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="Email" type="email" required>
+            </div>
+            <div class="form-row">
+              <label for="company">Company</label>
+              <input id="company" name="Company" type="text">
+            </div>
+            <div class="form-row">
+              <label for="message">Message (optional)</label>
+              <textarea id="message" name="Message"></textarea>
+              <div class="hint">Submitting will open your email client to send the details.</div>
+            </div>
+            <button type="submit" class="btn">Send</button>
+          </form>
+        </section>
+      </aside>
+    </div>
+
+    <!-- FAQ section -->
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <p>Use this section to document common questions and answers about your MSA and specifications.</p>
+      <div class="faq-box">
+        <!-- Empty text box placeholder for future FAQ content -->
+        FAQ content placeholder – add your questions and answers here.
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
