@@ -33,6 +33,50 @@
       padding: 0 16px 40px;
     }
 
+    /* Scrollable sections */
+    section {
+      margin-bottom: 24px;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(5, 10, 24, 0.9);
+      /* Fixed height + scroll */
+      max-height: 400px;
+      overflow-y: auto;
+      scrollbar-width: thin; /* Firefox */
+      scrollbar-color: var(--accent-light) var(--border);
+    }
+
+    section::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    section::-webkit-scrollbar-track {
+      background: var(--border);
+      border-radius: 4px;
+    }
+
+    section::-webkit-scrollbar-thumb {
+      background: var(--accent-light);
+      border-radius: 4px;
+    }
+
+    section::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      margin: 0 0 6px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
     /* Top graphic placeholder */
     .hero {
       margin-top: 24px;
@@ -68,6 +112,14 @@
       margin: 0;
       color: var(--muted);
       font-size: 14px;
+    }
+      .bottom-right {
+      position: fixed;
+      bottom: 10px;   /* distance from bottom */
+      right: 10px;    /* distance from right */
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: white;
     }
 
     /* Tabs / nav */
@@ -111,26 +163,6 @@
     .sidebar {
       flex: 0 0 280px;
       min-width: 260px;
-    }
-
-    section {
-      margin-bottom: 24px;
-      padding: 16px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: rgba(5, 10, 24, 0.9);
-    }
-
-    section h2 {
-      margin-top: 0;
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    section p {
-      margin: 0 0 6px;
-      font-size: 14px;
-      color: var(--muted);
     }
 
     /* Recent updates list */
@@ -256,21 +288,30 @@
         <section id="home">
           <h2>Home</h2>
           <p>This is a placeholder home section for your MSA-style site. Replace this text with your own description, scope, and goals.</p>
+          <p><strong>Add more content here and it will scroll...</strong></p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         </section>
 
         <section id="press">
           <h2>Press Releases</h2>
           <p>Use this area to list or link to your official announcements and press materials.</p>
+          <p><strong>Press release #1 content goes here...</strong></p>
+          <p><strong>Press release #2 content goes here...</strong></p>
+          <p><strong>Press release #3 content goes here...</strong></p>
         </section>
 
         <section id="specs">
           <h2>Specifications</h2>
           <p>Summarize your public specifications here, or link to PDF/HTML documents with detailed technical content.</p>
+          <p><strong>Specification details, tables, diagrams...</strong></p>
         </section>
 
         <section id="msa">
           <h2>MSA Documentation</h2>
           <p>Describe your Multi‑Source Agreement content, membership process, and document access policies.</p>
+          <p><strong>Membership requirements, process, benefits...</strong></p>
         </section>
       </div>
 
@@ -290,6 +331,10 @@
             <li>
               <span>Placeholder update item #3.</span>
               <span class="updates-date">2025‑10‑30</span>
+            </li>
+            <li>
+              <span>More updates can be added here...</span>
+              <span class="updates-date">2025‑10‑15</span>
             </li>
           </ul>
         </section>
@@ -332,9 +377,18 @@
       <div class="faq-box">
         <!-- Empty text box placeholder for future FAQ content -->
         FAQ content placeholder – add your questions and answers here.
+        <br><br>
+        <strong>Q: How do I join?</strong><br>
+        A: Contact us via the form above.
+        <br><br>
+        <strong>Q: Where are the specs?</strong><br>
+        A: Specifications section above.
+        <br><br>
+        Add more FAQs here...
       </div>
     </section>
 
   </div>
+  <div class="bottom-right">v0.001</div>
 </body>
 </html>
