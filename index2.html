@@ -30,13 +30,13 @@
     .page {
       max-width: var(--content-width);
       margin: 0 auto;
-      padding: 0 16px 40px;
+      padding: 16px;
     }
 
     /* Scrollable sections */
     section {
-      margin-bottom: 24px;
-      padding: 16px;
+      margin-bottom: 20px;
+      padding: 16px 16px 16px 16px;
       border-radius: 10px;
       border: 1px solid var(--border);
       background: rgba(5, 10, 24, 0.9);
@@ -82,7 +82,8 @@
       margin-top: 24px;
       border-radius: 12px;
       border: 1px solid var(--border);
-      background: linear-gradient(135deg, #111a32, #151f3f);
+	  background: linear-gradient(135deg, rgba(5,10,24,1), rgba(5,10,24,1));
+	  <!-- background: rgba(5,10,24,0.9); -->
       padding: 20px;
       display: flex;
       align-items: center;
@@ -92,34 +93,39 @@
     .hero-graphic {
       flex: 0 0 220px;
       height: 120px;
-      border-radius: 10px;
-      border: 1px dashed var(--accent-light);
       display: flex;
+	  border-radius: 10px;
       align-items: center;
       justify-content: center;
-      color: var(--accent-light);
+      <!-- color: var(--accent-light); -->
       font-size: 14px;
       text-align: center;
       padding: 8px;
     }
-
+    .hero-graphic img{
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-postion: center;
+	}
     .hero-text h1 {
-      margin: 0 0 8px;
+      margin: 16px;
       font-size: clamp(24px, 4vw, 32px);
     }
 
     .hero-text p {
-      margin: 0;
+      margin: 16px;
       color: var(--muted);
       font-size: 14px;
     }
       .bottom-right {
-      position: fixed;
+      position: static;
       bottom: 10px;   /* distance from bottom */
+      left: 10px;    /* distance from left */
       right: 10px;    /* distance from right */
       font-family: Arial, sans-serif;
       font-size: 12px;
-      color: white;
+      color: #f5f5f5;
     }
 
     /* Tabs / nav */
@@ -241,10 +247,10 @@
     /* FAQ box */
     .faq-box {
       width: 100%;
-      padding: 10px;
+      padding: 0px;
       min-height: 120px;
       border-radius: 8px;
-      border: 1px dashed var(--border);
+      border: 0px dashed var(--border);
       background: #050816;
       color: var(--muted);
       font-size: 14px;
@@ -257,6 +263,22 @@
         align-items: stretch;
       }
     }
+	a:link {
+		color: #f5f5f5; /* Unvisited link color */
+	}
+
+	a:visited {
+		color: #f5f5f5; /* Color after it has been clicked/visited */
+	}
+
+	a:hover {
+		color: red; /* Color when the mouse is over the link */
+	}
+
+	a:active {
+		color: yellow; /* Color for the brief moment it is being clicked */
+	}
+
   </style>
 </head>
 <body>
@@ -265,11 +287,11 @@
     <!-- Top graphic / hero -->
     <div class="hero">
       <div class="hero-graphic">
-        Top graphic placeholder<br>
-        (PNG goes here later)
+        <img src="image1.png" alt="EBO Ferrule">
+
       </div>
       <div class="hero-text">
-        <h1>EBO MSA</h1>
+        <h1>EBO (Expanded Beam Optics) MSA</h1>
         <p>Welcome to the EBO (Expanded Beam Optics) MSA homepage.</p>
       </div>
     </div>
@@ -286,8 +308,11 @@
       <!-- Main content -->
       <div class="main">
         <section id="home">
-          <h2>Welcome</h2>
-          <p>This is a placeholder home section for your MSA-style site. Replace this text with your own description, scope, and goals.</p>
+          <h2>Overview</h2>
+          <p>This Expanded Beam Optics MSA Group aims to standardize EBO connectors for wide scale adoption enabling multiple connector vendors to supply industry.</p>
+		  <p>The group is free to join, propective members should use the contact form to register interest and if accepted, send a signed copy of the MSA Agreement
+		  (link below).<br></p>
+		  
         </section>
 
         <section id="press">
@@ -302,8 +327,9 @@
 
         <section id="msa">
           <h2>MSA Agreement</h2>
-          <p>Here is the agreement to fill out to become a member: <strong>link here</strong></p>
+          <p>Here is the agreement to fill out to become a member:</p>
 		  <p><a href="assets/pdf/EBO_MSA_20250101.pdf">EBO MSA Specification 1.0 (placeholder draft)</a></p>
+		  <p>Signed agreement should be emailed to: <span style="color: #f5f5f5;">richard.ward@e2olabs.com</span> </p>
         </section>
       </div>
 
@@ -313,7 +339,7 @@
           <h2>Press Releases</h2>
           <ul class="updates-list">
             <li>
-              <span>Nothing to report yet</span>
+              <p>Nothing to report yet</p>
               <!-- <span class="updates-date">2026‑01‑01</span> \--!>
             </li>
           </ul>
@@ -322,32 +348,24 @@
         <section>
           <h2>Contact / Interest Form</h2>
           <!-- mailto-based form; will open user's email client -->
-          <form
-            action="mailto:richard.ward@e2olabs.com"
-            method="post"
-            enctype="text/plain"
-          >
+			<form action="https://api.web3forms.com/submit" method="POST">
+			<input type="hidden" name="access_key" value="79b31da7-2772-4b77-b054-5cce7bf5d43e">
             <div class="form-row">
               <label for="name">Name</label>
-              <input id="name" name="Name" type="text" required>
+              <input id="name" name="name" type="text" required>
+            </div>
+			
+            <div class="form-row">
+              <label for="email">Company email</label>
+              <input id="email" name="email" type="email" required>
             </div>
             <div class="form-row">
-              <label for="email">Email</label>
-              <input id="email" name="Email" type="email" required>
+              <label for="company">Company name</label>
+              <input id="company" name="message" type="text" required>
             </div>
-            <div class="form-row">
-              <label for="company">Company</label>
-              <input id="company" name="Company" type="text">
-            </div>
-            <!--
-              <div class="form-row">
-                <label for="message">Message (optional)</label>
-                <textarea id="message" name="Message"></textarea>
-                <div class="hint">Submitting will open your email client to send the details.</div>
-              </div>
-            -->
-            <button type="submit" class="btn">Send</button>
-          </form>
+
+			<button type="submit" class="btn">Send</button>
+		</form>
         </section>
       </aside>
     </div>
@@ -365,11 +383,14 @@
         <strong>Q: Where are the specs?</strong><br>
         A: Specifications section above.
         <br><br>
+		<strong>Q: Something is wrong with the website and I can't use the contact form!</strong><br>
+        A: Send an email to: richard.ward@e2olabs.com
+        <br>
 
       </div>
     </section>
 
   </div>
-  <div class="bottom-right">v0.005</div>
+  <div class="bottom-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v0.006<br><br></div>
 </body>
 </html>
